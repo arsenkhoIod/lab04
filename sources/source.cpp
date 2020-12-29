@@ -178,7 +178,6 @@ void Account::AddFile(File &Another) {
     Day = fileDay;
   }
 }
-
 Account::Account(File &f) {
   Broker = f.Broker;
   Id = f.Id;
@@ -187,7 +186,6 @@ Account::Account(File &f) {
   Day = f.Date.substr(f.Date.size()-DAYCHARS);
   Files = 1;
 }
-
 string Account::GetBroker() { return Broker; }
 string Account::GetId() { return Id; }
 int Account::GetFiles() { return Files; }
