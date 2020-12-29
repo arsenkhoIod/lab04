@@ -2,7 +2,7 @@
 #include <iostream>
 #include <utility>
 
-void MyFilesystem::PrintAllFiles() {
+void Filesystem::PrintAllFiles() {
   File tmpFileData;
   if (!boost::filesystem::exists(MyPath)){
     std::cout << "doesn't exist" << std::endl;
@@ -46,7 +46,7 @@ void MyFilesystem::PrintAllFiles() {
   std::cout << std::endl;
 }
 
-void MyFilesystem::PrintAllFiles(const path& p) {
+void Filesystem::PrintAllFiles(const path& p) {
   File tmpFileData;
   if (!boost::filesystem::exists(p)){
     std::cout << "doesn't exist" << std::endl;
@@ -87,7 +87,7 @@ void MyFilesystem::PrintAllFiles(const path& p) {
   }
 }
 
-bool MyFilesystem::IsFileNameTrue(const path& p) {
+bool Filesystem::IsFileNameTrue(const path& p) {
   string name(p.stem().string());
   if (name.size() < 5)
     return false;
@@ -122,7 +122,7 @@ bool MyFilesystem::IsFileNameTrue(const path& p) {
   return true;
 }
 
-int MyFilesystem::IsAccExist(File &f) {
+int Filesystem::IsAccExist(File &f) {
   for(size_t i = 0; i < AccsList.size(); ++i){
     if(AccsList[i] == f)
       return (int)i;
@@ -130,7 +130,7 @@ int MyFilesystem::IsAccExist(File &f) {
   return -1;
 }
 
-void MyFilesystem::PrintTotalInformation() {
+void Filesystem::PrintTotalInformation() {
   for(size_t i = 0; i<AccsList.size(); ++i){
     std::cout << "broker:" << AccsList[i].GetBroker() << \
         " account:" << AccsList[i].GetId() << \

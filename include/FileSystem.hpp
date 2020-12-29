@@ -10,7 +10,6 @@ using path = boost::filesystem::path;
 using iterator = boost::filesystem::directory_iterator;
 using entry = boost::filesystem::directory_entry;
 using string = std::string;
-//изменить константы
 //кол-во нижних подчёркиваний в названии файла
 const int DASHCOUNT = 2;
 //максимальное кол-во дней в месяце
@@ -47,10 +46,10 @@ struct Account{
   string Month;
   string Day;
 };
-//переименовать
-class MyFilesystem{
+
+class Filesystem{
  public:
-  explicit MyFilesystem(boost::filesystem::path  myPath)
+  explicit Filesystem(boost::filesystem::path  myPath)
       :MyPath(std::move(myPath)) {}
   void PrintAllFiles();
   int IsAccExist(File &f);
