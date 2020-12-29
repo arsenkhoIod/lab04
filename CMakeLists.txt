@@ -20,14 +20,17 @@ HunterGate(
   SHA1 "35fa55bc1dfcf9f4d7264f8bb26cd1759ce1ae07"
 )
 
-# TODO: rename project and delete this comment
-project(template VERSION 0.1.0)
+#
+project(lab04 VERSION 0.1.0)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
+string(APPEND CMAKE_CXX_FLAGS " -lgcov --coverage")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 
 hunter_add_package(GTest)
+hunter_add_package(Boost COMPONENTS filesystem)
 find_package(GTest CONFIG REQUIRED)
+find_package(Boost CONFIG REQUIRED filesystem)
 
 add_library(${PROJECT_NAME} STATIC
   # enum your files and delete this comment
@@ -47,10 +50,11 @@ target_link_libraries(demo ${PROJECT_NAME})
 
 if(BUILD_TESTS)
   add_executable(tests
-    # TODO: enum your files and delete this comment
-    ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
+    #
+          ${CMAKE_CURRENT_SOURCE_DIR}/tests/FileSystem.cpp
   )
   target_link_libraries(tests ${PROJECT_NAME} GTest::gtest_main)
+  target_link_libraries(${PROJECT_NAME} Boost::filesystem)
   enable_testing()
   add_test(NAME unit_tests COMMAND tests)
 endif()
