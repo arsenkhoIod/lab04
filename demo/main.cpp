@@ -2,11 +2,11 @@
 
 int main(int argc, char *argv[]) {
   if (argc < 2) {
-    Filesystem Tested(".");
+    MyFilesystem Tested(".");
     Tested.PrintAllFiles();
     return 0;
   } else {
-    Filesystem Tested(argv[1]);
+    MyFilesystem Tested(argv[1]);
     Tested.PrintAllFiles();
     Tested.PrintTotalInformation();
   }}

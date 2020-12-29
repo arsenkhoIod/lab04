@@ -47,9 +47,9 @@ struct Account{
   string Day;
 };
 
-class Filesystem{
+class MyFilesystem{
  public:
-  explicit Filesystem(boost::filesystem::path  myPath)
+  explicit MyFilesystem(boost::filesystem::path  myPath)
       :MyPath(std::move(myPath)) {}
   void PrintAllFiles();
   int IsAccExist(File &f);
